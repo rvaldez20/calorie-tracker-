@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, ChangeEvent } from 'react'
 import { categories } from '../data/categories'
 
 
@@ -9,6 +9,15 @@ export default function Form() {
       name: '',
       calories: 0,
    })
+
+   const handleChange = (e: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement>) => {
+      setActivity({
+         ...activity,
+         [e.target.id]: e.target.value
+      })
+      console.log(e.target.id)
+      console.log(e.target.value)
+   }
 
 
    return (
@@ -21,7 +30,8 @@ export default function Form() {
             <select
                className="border border-slate-300 p-2 rounded-lg w-full bg-white"
                id="category"
-               value={activity.category}            
+               value={activity.category}
+               onChange={handleChange}
             >
                {categories.map(category => (
                   <option 
@@ -35,13 +45,14 @@ export default function Form() {
          </div>
 
          <div className="grid grid-cols-1 gap-3">
-            <label className='font-bold' htmlFor="typeActivity">Activity:</label>
+            <label className='font-bold' htmlFor="name">Activity:</label>
             <input 
                type="text"
-               id="typeActivity"
-               className="border-slate-300 p-2 rounded-lg"
+               id="name"
+               className="border border-slate-300 p-2 rounded-lg"
                placeholder="Ej. Food, Orange juice, Salad, exercise, Weightlifting, Bicycle"
                value={activity.name}
+               onChange={handleChange}
             />
          </div>
 
@@ -50,9 +61,10 @@ export default function Form() {
             <input 
                type="number"
                id="calories"
-               className="border-slate-300 p-2 rounded-lg"
+               className="border border-slate-300 p-2 rounded-lg"
                placeholder="Calories. Ej. 300 o 500"
                value={activity.calories}
+               onChange={handleChange}
             />
          </div>
 
