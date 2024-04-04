@@ -5,6 +5,7 @@ import { activityReducer, initialState } from './reducers/activity-reducer'
 
 function App() {
 
+  // definicion del reducer
   const [state, dispatch] = useReducer(activityReducer, initialState)
 
   return (
