@@ -4,12 +4,12 @@ export type ActivityActions =
    {type: 'save-activity', payload: { newActivity: Activity }}
 
 type ActivityState = {
-   activities: Activity[]
+   activities: Activity[],
 }
 
 
 export const initialState:ActivityState = {
-   activities: []
+   activities: [],
 }
 
 
