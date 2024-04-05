@@ -8,7 +8,7 @@ function App() {
 
   // definicion del reducer
   const [state, dispatch] = useReducer(activityReducer, initialState)
-  console.log(state)
+  // console.log(state)
 
   return (
     <>
@@ -28,7 +28,7 @@ function App() {
         </div>
       </section>
 
-      <section className='p-10 max-auto max-w-4xl'>
+      <section className='p-10 mx-auto max-w-4xl'>
         <ActivityList 
           activities={state.activities}
         />
